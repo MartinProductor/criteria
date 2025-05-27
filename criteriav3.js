@@ -2,10 +2,22 @@ const express = require('express');
 const app = express();
 const port = 3000;
 
+//Si, el codigo fue generado con chatgpt o4-mini, dentro de un proyecto de chatgpt plus.
+//Le agregué seguridad basica, se que crypto está deprecada, pero al menos hagamos sudar un poquito al hacker.
+//que bueno que estés leyendo esto, significa que te gusta el desarrollo.
+
 const { guardar } = require('./persistencia/datos');
 
 app.use(express.static('public'));
-app.use(express.urlencoded({ extended: true }));
+//app.use(express.urlencoded({ extended: true })); //primer crash de Criteria. La gente se copo escribiendo y superaron el limite
+//best error ever <3
+
+//aca corregimos.
+app.use(express.urlencoded({ 
+  extended: true, 
+  limit: '10mb',        //Bill Gates dijo que 640kb eran suficientes, no voy a cometer ese error.
+  parameterLimit: 1000000 // Por si las dudas, siempre hay algun malhechor
+}));
 
 app.get('/', (req, res) => {
   res.send(`
@@ -14,7 +26,7 @@ app.get('/', (req, res) => {
     <head>
       <meta charset="UTF-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">      
-      <title>Sugerencias del Juzgado</title>
+      <title>Criteria</title>
       <style>
         * {
           margin: 0;
@@ -135,16 +147,16 @@ app.get('/', (req, res) => {
       <div class="main-container">
         <img src="./logotipopj.png" alt="Logo PJ Mendoza" class="logo">
         <div class="logo-text">Criter<span class="highlight">ia</span></div>
-        <div class="subtitle">Formulario anónimo para sugerencias y sensaciones</div>
+        <div class="subtitle">Formulando el futuro</div>
         <form id="form-sugerencia" action="/enviar" method="POST" autocomplete="off">
-          <label for="sugerencia">¿Cómo te sentís respecto a la IA en general y la justicia?<br><span style="font-size:13px;color:#999;font-weight:400;">Recomendación: usá tu propio lenguaje</span></label>
-          <textarea id="sugerencia" name="sugerencia" required placeholder="Escribí tu sugerencia o sensación aquí..."></textarea>
+          <label for="sugerencia">Describe tus experiencias con la I.A.<br><span style="font-size:13px;color:#999;font-weight:400;">Recomendación: usá tu propio lenguaje</span></label>
+          <textarea id="sugerencia" name="sugerencia" required placeholder="Escribí aqui"></textarea>
           <input type="hidden" id="historial" name="historial">
           <input type="hidden" id="duracion" name="duracion">
           <button type="submit">Enviar</button>
         </form>
         <div class="footer">
-          <span>El mensaje se guarda de forma anónima y segura.</span>
+          <span>¡Gracias por colaborar!.</span>
         </div>
       </div>
       <script>
@@ -191,5 +203,5 @@ app.post('/enviar', (req, res) => {
 });
 
 app.listen(port, () => {
-  console.log(`Servidor corriendo en http://localhost:${port}`);
+  console.log(`Criteria V03 ESTA EN LINEA en http://localhost:${port}`);
 });
