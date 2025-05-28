@@ -1,5 +1,5 @@
 Criteria
 
-Prototipo privado - Candidato a Convocatoria de innovacion.
+Prototipo privado - Candidato a Convocatoria de proyectos de innovación.
 
-2025(C) Martin A. Aranda.
+(C) 2025 Martin A. Aranda. Analista de sistemas.
