@@ -1,0 +1,73 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f0f8ff; /* Fondo azul clarito */
+  color: #333;
+  text-align: center;
+  padding: 20px;
+}
+
+h1 {
+  color: #0056b3; /* Azul oscuro */
+}
+
+form {
+  background-color: #fff;
+  border: 1px solid #0056b3;
+  border-radius: 10px;
+  padding: 20px;
+  display: inline-block;
+}
+
+label {
+  display: block;
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+input[type="text"] {
+  padding: 10px;
+  font-size: 16px;
+  width: 80%;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+button {
+  background-color: #0056b3;
+  color: white;
+  padding: 10px 20px;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #004494; /* Un poco más oscuro al pasar el mouse */
+}
+
+textarea {
+  padding: 10px;
+  font-size: 16px;
+  width: 80%;
+  height: 100px; /* Hacemos el campo más alto */
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  resize: vertical; /* Permitir que el usuario cambie la altura si quiere */
+}
+
+.logo {
+  display: block;
+  margin: 0 auto;
+  max-width: 350px; /* Ajustá este valor según el tamaño que quieras */
+  height: auto; /* Mantiene la proporción del logotipo */
+  margin-bottom: 20px;
+}
+
+.demo-text {
+  margin-top: 20px;
+  font-size: 24px;
+  color: #f00;
+  text-align: center;
+}
